@@ -60,30 +60,33 @@ if(result === 'n' || result === 'no'){
 alert('Let\'s play another game. Okay, riddle me this...');
 
 var guess;
+var lowes = Math.floor(Math.random()*21);
 var tries = 4;
 var counter = 1;
+
+console.log('The answer is...', lowes);
 
 while(tries > 0){
   console.log('Last guess:', guess);
   console.log('Tries left:', tries);
   console.log('Attempt:', counter);
   guess = parseInt(prompt('How many Lowe\'s could Rob Lowe rob if Rob Lowe could rob Lowe\'s? You have ' + tries + ' guesses.'));
-  if (guess < 17){
+  if (guess < lowes){
     alert('You underestimate Mr. Lowe.');
     counter++;
     tries--;
-  } else if (guess > 17) {
+  } else if (guess > lowes) {
     alert('Whoa there. Too much.');
     counter++;
     tries--;
   } else if (isNaN(guess) || guess === null) {
-    alert('That\'s not a number.');
-  } else if (guess === 17){
+    alert('Hey, that\'s not a number. Try again.');
+  } else if (guess === lowes){
     break;
   }
 }
 
-if (guess === 17){
+if (guess === lowes){
   alert('Exactly right!');
 } else {
   alert('Bzzzt! Game over! Now you\'ll never know the exact extent of Robe Lowe\'s robbery prowess!');
