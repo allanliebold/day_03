@@ -96,31 +96,33 @@ if (guess != lowes){
 alert('Time to get serious now.');
 alert('As you may have guessed, I am an entity that exists beyond your limited comprehension.');
 alert('As such, in order to interact with your kind, I have manifested in no fewer than four of your so-called "united" states of being.');
-alert('Besides Washington, name one of the three other states in which I have lived. No abbrevs please. And, yes, spelling counts.');
+alert('Besides Washington, name one of the three other states in which I have lived. No abbrevs please. And, yes, spelling counts. You get 6 chances to give a correct answer.');
 
-/*
-var tries = 6;
-var lived = ['California', 'Georgia', 'Illinois'];
 var flag;
+var lived = ['california', 'georgia', 'illinois'];
+var counter = 6;
 
-while(tries > 0){
-  console.log('Tries left:', tries);
-  var state = prompt('Where have I lived?');
-  if (state.length < 3){
-    alert('I said no abbreviations!');
-  } else {
-      for(var i = 0; i < lived.length; i++){
-        console.log('Current State:', lived[i]);
-      }
-        if(state === lived[i]){
-          alert('Correct!');
-          flag = true;
-          break;
-        }
-        if(!flag){
-          alert('Nope!');
-          tries--;
-        }
-      }
+while(counter > 0){
+  console.log("Counter:", counter);
+  var state = prompt('Where have I lived?').toLowerCase();
+  if (flag){
+    break;
   }
-*/
+
+  for(var i = 0; i < lived.length; i++){
+    console.log('Current State:', lived[i]);
+    if(state === lived[i]){
+      alert('Correct!');
+      flag = true;
+      break;
+    }
+    if(!flag){
+      alert('Nope!');
+      counter--;
+    }
+  }
+}
+
+if(!flag){
+  alert('You lose!');
+}
