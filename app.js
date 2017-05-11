@@ -62,32 +62,65 @@ alert('Let\'s play another game. Okay, riddle me this...');
 var guess;
 var lowes = Math.floor(Math.random()*21);
 var tries = 4;
-var counter = 1;
-
-console.log('The answer is...', lowes);
+console.log('Psst. The answer is...', lowes);
 
 while(tries > 0){
   console.log('Last guess:', guess);
   console.log('Tries left:', tries);
-  console.log('Attempt:', counter);
-  guess = parseInt(prompt('How many Lowe\'s could Rob Lowe rob if Rob Lowe could rob Lowe\'s? You have ' + tries + ' guesses.'));
+
+  if (tries > 1){
+    guess = parseInt(prompt('How many Lowe\'s could Rob Lowe rob if Rob Lowe could rob Lowe\'s? You have ' + tries + ' tries left.'));
+  } else {
+    guess = parseInt(prompt('Last chance. How many?'));
+  }
   if (guess < lowes){
     alert('You underestimate Mr. Lowe.');
-    counter++;
+    tries--;
+  } else if (guess > 20) {
+    alert('Way, way too high. Rob Lowe is by all accounts a mere mortal after all.');
     tries--;
   } else if (guess > lowes) {
     alert('Whoa there. Too much.');
-    counter++;
     tries--;
   } else if (isNaN(guess) || guess === null) {
     alert('Hey, that\'s not a number. Try again.');
   } else if (guess === lowes){
+    alert('Exactly right!');
     break;
   }
 }
-
-if (guess === lowes){
-  alert('Exactly right!');
-} else {
+if (guess != lowes){
   alert('Bzzzt! Game over! Now you\'ll never know the exact extent of Robe Lowe\'s robbery prowess!');
 }
+
+alert('Time to get serious now.');
+alert('As you may have guessed, I am an entity that exists beyond your limited comprehension.');
+alert('As such, in order to interact with your kind, I have manifested in no fewer than four of your so-called "united" states of being.');
+alert('Besides Washington, name one of the three other states in which I have lived. No abbrevs please. And, yes, spelling counts.');
+
+/*
+var tries = 6;
+var lived = ['California', 'Georgia', 'Illinois'];
+var flag;
+
+while(tries > 0){
+  console.log('Tries left:', tries);
+  var state = prompt('Where have I lived?');
+  if (state.length < 3){
+    alert('I said no abbreviations!');
+  } else {
+      for(var i = 0; i < lived.length; i++){
+        console.log('Current State:', lived[i]);
+      }
+        if(state === lived[i]){
+          alert('Correct!');
+          flag = true;
+          break;
+        }
+        if(!flag){
+          alert('Nope!');
+          tries--;
+        }
+      }
+  }
+*/
