@@ -103,8 +103,8 @@ var lived = ['california', 'georgia', 'illinois'];
 var counter = 6;
 
 while(counter > 0){
-  console.log("Counter:", counter);
-  var state = prompt('Where have I lived?').toLowerCase();
+  console.log("Tries left:", counter);
+  var state = prompt('Where have I lived? You have ' + counter + ' guesses.').toLowerCase();
   if (flag){
     break;
   }
@@ -116,10 +116,12 @@ while(counter > 0){
       flag = true;
       break;
     }
-    if(!flag){
-      alert('Nope!');
-      counter--;
-    }
+  }
+  if(flag){
+    break;
+  } else {
+    alert('Nope!');
+    counter--;
   }
 }
 
