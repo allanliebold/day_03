@@ -127,4 +127,6 @@ while(counter > 0){
 
 if(!flag){
   alert('You lose!');
+} else {
+  alert('You win!');
 }
